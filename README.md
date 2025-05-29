@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# 🌦️ Weather Dashboard App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React-based weather dashboard built with:
+- **React Query** for data caching
+- **Supabase** for user login (email & password)
+- **OpenWeatherMap API** for weather data
+- **React Context API** for state management
+- Fully styled with clean CSS and responsive layout
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Live Preview
+You can deploy the app using [Netlify](https://netlify.com/) or [Vercel](https://vercel.com/).
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🧑‍💻 Project Setup
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/weather-dashboard.git
+cd weather-dashboard
+```
 
-### `npm test`
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 3. Configure Environment Variables
+Create a `.env` file in the root:
+```env
+REACT_APP_WEATHER_API_KEY=your_openweathermap_api_key
+```
 
-### `npm run build`
+### 4. Supabase Setup
+- Go to [https://supabase.com](https://supabase.com) → create a new project
+- Enable **Email/Password** auth in **Authentication → Settings**
+- Get your project URL and anon/public key
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In `src/supabaseClient.js`:
+```js
+const supabaseUrl = "https://your-project.supabase.co";
+const supabaseKey = "your-anon-key";
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 5. Start the App
+```bash
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🔐 Login Info
+- Use the sign-up form to create a user account
+- Email/password is stored securely via Supabase Auth
+- Once logged in, the user is shown the full dashboard
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🧠 Assignment Approach
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. **Functional Components + Hooks**: Entire app is written with functional components and uses `useState`, `useEffect`, and `useContext` hooks.
+2. **React Query**: Used to fetch and cache weather + forecast data with auto refetch every 30s.
+3. **Supabase Auth**: Handles login/signup logic and protects dashboard routes.
+4. **Error Handling**: Dedicated error component for invalid cities or network issues.
+5. **Weather Display**: Separate reusable component shows weather + icon.
+6. **Forecast**: 5-day forecast displayed with responsive grid.
+7. **Extras**: Temperature unit toggle, localStorage, logout support.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 📦 Folder Structure
+```
+src/
+├── components/
+│   ├── Login.jsx
+│   ├── SearchBar.jsx
+│   ├── WeatherDisplay.jsx
+│   └── ErrorMessage.jsx
+├── context/
+│   └── WeatherContext.jsx
+├── supabaseClient.js
+├── App.js
+└── App.css
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📄 License
+MIT
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🧑‍🎓 Author
+Built by **Madhuri Perumandla** as part of a full-stack assignment challenge 🚀
